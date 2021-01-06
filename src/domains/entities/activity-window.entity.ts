@@ -3,7 +3,7 @@ import { AccountId } from 'src/domains/entities/account.entity';
 import { MoneyEntity } from 'src/domains/entities/money.entity';
 
 export class ActivityWindowEntity {
-  private readonly _activities: ActivityEntity[];
+  private readonly _activities: ActivityEntity[] = [];
 
   get activities(): ActivityEntity[] {
     return this._activities;
@@ -11,7 +11,6 @@ export class ActivityWindowEntity {
 
   addActivity(activity: ActivityEntity) {
     this.activities.push(activity);
-
     return this;
   }
 

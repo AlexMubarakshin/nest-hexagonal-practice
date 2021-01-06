@@ -26,7 +26,9 @@ describe('SendMoneyService', () => {
       );
 
       const account = instance(mockedAccountEntity);
-      when(loadAccountPort.loadAccount(id)).thenReturn(account);
+      when(loadAccountPort.loadAccount(id)).thenReturn(
+        Promise.resolve(account),
+      );
 
       return account;
     }

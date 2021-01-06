@@ -10,12 +10,12 @@ export class SendMoneyService implements SendMoneyUseCase {
     private readonly _updateAccountStatePort: UpdateAccountPort,
   ) {}
 
-  sendMoney(command: SendMoneyCommand): boolean {
-    const sourceAccount: AccountEntity = this._loadAccountPort.loadAccount(
+  async sendMoney(command: SendMoneyCommand): Promise<boolean> {
+    const sourceAccount: AccountEntity = await this._loadAccountPort.loadAccount(
       command.sourceAccountId,
     );
 
-    const targetAccount: AccountEntity = this._loadAccountPort.loadAccount(
+    const targetAccount: AccountEntity = await this._loadAccountPort.loadAccount(
       command.targetAccountId,
     );
 
